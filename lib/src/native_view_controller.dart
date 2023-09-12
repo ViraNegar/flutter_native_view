@@ -72,13 +72,14 @@ class NativeViewController {
 
   /// Creates a new [NativeView].
   void createNativeView() {
+    final xRatio = 0.5;
     FFI.nativeViewCoreCreateNativeView(
       handle,
-      (painterKey.rect!.left * window.devicePixelRatio).toInt(),
-      (painterKey.rect!.top * window.devicePixelRatio).toInt(),
-      (painterKey.rect!.right * window.devicePixelRatio).toInt(),
-      (painterKey.rect!.bottom * window.devicePixelRatio).toInt(),
-      window.devicePixelRatio,
+      (painterKey.rect!.left * xRatio).toInt(),
+      (painterKey.rect!.top * xRatio).toInt(),
+      (painterKey.rect!.right * xRatio).toInt(),
+      (painterKey.rect!.bottom * xRatio).toInt(),
+      xRatio,
     );
   }
 
