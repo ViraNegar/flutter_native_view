@@ -72,7 +72,7 @@ class NativeViewController {
 
   /// Creates a new [NativeView].
   void createNativeView() {
-    final xRatio = 0.5;
+    final xRatio = 0.1;
     FFI.nativeViewCoreCreateNativeView(
       handle,
       (painterKey.rect!.left * xRatio).toInt(),
