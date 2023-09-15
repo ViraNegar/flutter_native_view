@@ -43,6 +43,7 @@ class NativeViewController {
   final int handle;
   final GlobalKey rendererKey = GlobalKey();
   final GlobalKey painterKey = GlobalKey();
+  final xRatio = 0.01; //window.devicePixelRatio
 
   /// [StreamController] to avoid race & send [Rect]s synchronously.
   final StreamController<void> resizeNativeViewStreamController =
@@ -72,7 +73,6 @@ class NativeViewController {
 
   /// Creates a new [NativeView].
   void createNativeView() {
-    final xRatio = 0.1;
     FFI.nativeViewCoreCreateNativeView(
       handle,
       (painterKey.rect!.left * xRatio).toInt(),
@@ -98,10 +98,10 @@ class NativeViewController {
   void refresh({bool force = true}) {
     FFI.nativeViewCoreResizeNativeView(
       handle,
-      (painterKey.rect!.left * window.devicePixelRatio).toInt(),
-      (painterKey.rect!.top * window.devicePixelRatio).toInt(),
-      (painterKey.rect!.right * window.devicePixelRatio).toInt(),
-      (painterKey.rect!.bottom * window.devicePixelRatio).toInt(),
+      (painterKey.rect!.left  * xRatio).toInt(),
+      (painterKey.rect!.top * xRatio).toInt(),
+      (painterKey.rect!.right * xRatio).toInt(),
+      (painterKey.rect!.bottom * xRatio).toInt(),
     );
     rendererKey.currentState!.setState(() {});
   }
