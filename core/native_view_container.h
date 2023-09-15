@@ -22,7 +22,7 @@ namespace flutternativeview {
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#pragma warning(disable:4596)
 class NativeViewContainer {
  public:
   DLLEXPORT static NativeViewContainer* GetInstance();
