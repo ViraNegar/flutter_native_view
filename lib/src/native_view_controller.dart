@@ -79,7 +79,7 @@ class NativeViewController {
       (painterKey.rect!.top * xRatio).toInt(),
       (painterKey.rect!.right * xRatio).toInt(),
       (painterKey.rect!.bottom * xRatio).toInt(),
-      0.5,
+      0.01,
     );
   }
 
