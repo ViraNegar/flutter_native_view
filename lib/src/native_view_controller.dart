@@ -43,7 +43,7 @@ class NativeViewController {
   final int handle;
   final GlobalKey rendererKey = GlobalKey();
   final GlobalKey painterKey = GlobalKey();
-  final xRatio = window.devicePixelRatio;
+  final xRatio = 1.0;//window.devicePixelRatio;
 
   /// [StreamController] to avoid race & send [Rect]s synchronously.
   final StreamController<void> resizeNativeViewStreamController =
